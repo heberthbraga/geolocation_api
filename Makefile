@@ -11,6 +11,9 @@ drop-volumes:
 build-local:
 	${DOCKER_COMPOSE_CMD} up -d --build
 
+up:
+	${DOCKER_COMPOSE_CMD} up -d
+
 stop-local:
 	${DOCKER_COMPOSE_CMD} stop
 
