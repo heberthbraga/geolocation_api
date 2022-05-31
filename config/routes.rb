@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
       resources :geolocations, only: :create
       resources :geolocations, only: [:show, :edit, :update, :destroy], param: :lookup_address
+
+      post 'accounts/create', to: 'accounts#create'
     end
   end
 end

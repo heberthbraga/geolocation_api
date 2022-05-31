@@ -40,5 +40,6 @@ keys/*
 .vscode/
 
 .env
+.env.*
 
 vendor/bundle
