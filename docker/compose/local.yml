@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  db:
+    container_name: geolocation-db
+    platform: linux/x86_64
+    image: postgres:latest
+    restart: always
+    ports:
+      - 5456:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  api:
+    restart: always
+    container_name: geolocation-api
+    build: ../dockerfiles/local
+    volumes:
+      - ../../:/app
+      - bundle:/usr/local/bundle
+    working_dir: /app
+    ports:
+      - 3000:3000
+    env_file:
+      - ../../.env
+    depends_on:
+      - db
+    environment:
+      RAILS_ENV: "local"
+
+volumes:
+  bundle:
+  pg_data:

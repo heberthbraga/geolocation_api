@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV.fetch("DB_USERNAME") %>
+  password: <%= ENV.fetch("DB_PASSWORD") %>
+  port: <%= ENV.fetch("DB_PORT") %>
+  host: <%= ENV.fetch("DB_HOSTNAME") %>
+
+development:
+  <<: *default
+  database: geoloction_api_development
+
+test:
+  <<: *default
+  database: geoloction_api_test
+
+local: 
+  <<: *default
+  database: geoloction_api_local
+
+production:
+  adapter: postgresql
+  database: geoloction_api_production
+  encoding: unicode

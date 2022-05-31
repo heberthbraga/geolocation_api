@@ -1,0 +1,18 @@
+default: &default
+
+local:
+  <<: *default
+  enable_httpparty_debug: true
+
+development:
+  <<: *default
+  enable_httpparty_debug: true
+
+production:
+  <<: *default
+  enable_httpparty_debug: false
+
+test:
+  <<: *default
+  enable_httpparty_debug: false
+  
