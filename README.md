@@ -18,41 +18,41 @@ for a given service provider. There is a default service provider https://ipstac
 ## Initial Setup and Running the API on local env
 
 ```
-> make build-local
+make build-local
 ```
 
 ## Running the API on local env
 
 ```
-> make start-local
+make start-local
 ```
 
 ## Stopping the API on local env
 
 ```
-> make stop-local
+make stop-local
 ```
 
 ## Dropping the API on local env
 
 ```
-> make drop-volumes
+make drop-volumes
 ```
 
 ## Preparing the Test env
 
 ```
-> make test-prepare
+make test-prepare
 ```
 
 ## Running specs
 
 ```
-> make rspec
+make rspec
 ```
 
 ## Running Cucumber
 
 ```
-> make cucumber
+make cucumber
 ```
