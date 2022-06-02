@@ -2,9 +2,7 @@
 
 # Simple Geolocation Restful API on Docker demo application
 
-This API demonstrates a simple geolocation system built with Rails 7 and PostgreSQL. The goal of the application is 
-to store geolocation data in the database based on IP address. The API is able to add, delete and provide geolocation data
-for a given service provider. There is a default service provider https://ipstack.com/. 
+This API demonstrates a simple geolocation system built with Rails 7 and PostgreSQL. The goal of the application is to store geolocation data in the database based on IP address. The API is able to add, delete and provide geolocation data for a given service provider. There is a default service provider https://ipstack.com/. The application was built to easily adapt new service providers by following certain pattern that needs to be stored in the database along the service provider details.
 
 ## Tech Features
 
