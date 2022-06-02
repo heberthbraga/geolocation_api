@@ -12,5 +12,6 @@ module Error
     READ_TIMEOUT_ERROR = 'Timeout Error'
     PROVIDER_INSTANCE_NOT_FOUND = 'Provider Instance Not Found'
     JSON_PARSER = 'JSON Parser' 
+    PROVIDER_REPONSE_ERROR = 'Provider Response Error'
   end
 end

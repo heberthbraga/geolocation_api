@@ -13,6 +13,7 @@ module ErrorHandler
     rescue_from Error::ReadTimeout, with: :render_read_timeout_error
     rescue_from Error::ProviderRequestError, with: :render_provider_request_error
     rescue_from Error::LoadInstance, with: :render_load_instance_error
+    rescue_from Error::JsonParser, with: :render_json_parser_error
   end
 
   def render_unprocessable_entity_response(exception)
@@ -53,11 +54,15 @@ module ErrorHandler
   end
 
   def render_provider_request_error(_exception)
-    render_error Error::ProviderRequestError.new(_exception.title, _exception.detail, _exception.source['pointer'])
+    render_error Error::ProviderRequestError.new(_exception.detail, _exception.source['pointer'])
   end
 
   def render_load_instance_error(_exception)
     render_error Error::LoadInstance.new
+  end
+
+  def render_json_parser_error(_exception)
+    render_error Error::JsonParser.new(_exception.detail)
   end
 
   private

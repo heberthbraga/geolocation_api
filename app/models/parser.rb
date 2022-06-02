@@ -13,6 +13,7 @@ class Parser
   
       endpoint = @parsed_config_bundle[:endpoint]
       api_key = @parsed_config_bundle[:api_key]
+      response_keys = @parsed_config_bundle[:response_keys]
   
       unless endpoint.present?
         raise_provider_error(Error::Message::PROVIDER_ENDPOINT_REQUIRED_ERROR)
@@ -20,6 +21,22 @@ class Parser
 
       unless api_key.present?
         raise_provider_error(Error::Message::PROVIDER_API_KEY_REQUIRED_ERROR)
+      end
+
+      unless api_key[:name].present?
+        raise_provider_error(Error::Message::PROVIDER_API_KEY_NAME_REQUIRED_ERROR)
+      end
+
+      unless api_key[:value].present?
+        raise_provider_error(Error::Message::PROVIDER_API_KEY_VALUE_REQUIRED_ERROR)
+      end
+
+      unless response_keys.present?
+        raise_provider_error(Error::Message::PROVIDER_RESPONSE_KEYS_REQUIRED_ERROR)
+      end
+
+      unless response_keys.all?{ |k| k.is_a?(String) }
+        raise_provider_error(Error::Message::PROVIDER_RESPONSE_KEYS_INVALID_TYPE_ERROR)
       end
 
       @parsed_config_bundle

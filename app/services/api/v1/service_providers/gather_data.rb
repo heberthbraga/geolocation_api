@@ -11,11 +11,17 @@ class Api::V1::ServiceProviders::GatherData
 
     service_provider = Api::V1::ServiceProviders::Get.call(provider).result
     
-    provider_instance = service_provider.build_instance(lookup_address)
+    config_bundle = service_provider.config_bundle
 
-    Rails.logger.debug("ServiceProvider::GatherData => Preparing instance #{provider_instance.inspect}")
+    Rails.logger.debug("ServiceProvider::GatherData => Building instance with config=#{config_bundle}")
+    
+    provider_instance = service_provider.build_instance
 
-    provider_adapter = ProviderAdapter.new(provider_instance)
+    provider_instance_obj = provider_instance.new(config_bundle, lookup_address)
+
+    Rails.logger.debug("ServiceProvider::GatherData => Preparing instance #{provider_instance_obj.inspect}")
+
+    provider_adapter = ProviderAdapter.new(provider_instance_obj)
     
     provider_lookup = ProviderLookup.new(provider_adapter)
 

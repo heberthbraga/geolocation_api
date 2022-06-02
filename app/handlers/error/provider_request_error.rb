@@ -1,10 +1,10 @@
 module Error
   class ProviderRequestError < Error::Standard
-    def initialize(title, detail, endpoint)
+    def initialize(response, endpoint)
       super(
-        title: title,
+        title: Error::Title::PROVIDER_REPONSE_ERROR,
         status: Error::Status::INVALID_REQUEST,
-        detail: detail,
+        detail: response,
         source: { pointer: endpoint }
       )
     end

@@ -17,5 +17,9 @@ module Error
     PROVIDER_INSTANCE_NOT_FOUND_ERROR = "Couldn't load provider instance."
     PROVIDER_ENDPOINT_REQUIRED_ERROR = 'Provider endopoint is required.'
     PROVIDER_API_KEY_REQUIRED_ERROR = 'Provider api key is required.'
+    PROVIDER_API_KEY_NAME_REQUIRED_ERROR = 'Provider api key name is required.'
+    PROVIDER_API_KEY_VALUE_REQUIRED_ERROR = 'Provider api key value is required.'
+    PROVIDER_RESPONSE_KEYS_REQUIRED_ERROR = 'Provider response keys is required.'
+    PROVIDER_RESPONSE_KEYS_INVALID_TYPE_ERROR = 'Provider response keys must be string type'
   end
 end
