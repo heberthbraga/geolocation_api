@@ -16,19 +16,19 @@ up:
 	${DOCKER_COMPOSE_CMD} -p ${ROOT_NAME} up -d
 
 stop-local:
-	${DOCKER_COMPOSE_CMD} stop
+	${DOCKER_COMPOSE_CMD} -p ${ROOT_NAME} stop
 
 start-local:
-	${DOCKER_COMPOSE_CMD} start -d
+	${DOCKER_COMPOSE_CMD} -p ${ROOT_NAME} start
 
 restart-local:
-	${DOCKER_COMPOSE_CMD} restart
+	${DOCKER_COMPOSE_CMD} -p ${ROOT_NAME} restart
 
 test-prepare:
-	${DOCKER_COMPOSE_CMD} ${EXEC_TEST_CMD} bin/rails db:create db:migrate
+	${DOCKER_COMPOSE_CMD} -p ${ROOT_NAME} ${EXEC_TEST_CMD} bin/rails db:create db:migrate
 
 rspec:
-	${DOCKER_COMPOSE_CMD} ${EXEC_TEST_CMD} bundle exec rspec
+	${DOCKER_COMPOSE_CMD} -p ${ROOT_NAME} ${EXEC_TEST_CMD} bundle exec rspec
 
 cucumber:
-	${DOCKER_COMPOSE_CMD} ${EXEC_TEST_CMD} bundle exec cucumber
+	${DOCKER_COMPOSE_CMD} -p ${ROOT_NAME} ${EXEC_TEST_CMD} bundle exec cucumber
